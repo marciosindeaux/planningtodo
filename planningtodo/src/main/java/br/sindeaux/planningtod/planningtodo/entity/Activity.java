@@ -13,7 +13,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "TB_ATIVIDADE")
-
 public class Activity extends EntityBase {
 
     @Id

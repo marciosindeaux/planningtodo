@@ -1,0 +1,30 @@
+package br.sindeaux.planningtod.planningtodo.dto.base;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ActivityDTO{
+
+    private Long id;
+
+    private GroupDTO group;
+
+    private LocalDate finishDate;
+
+    private LocalDateTime reminder;
+
+    private Boolean finish;
+
+    private Boolean favorite;
+
+    private String annotations;
+
+    private List<SubActivityDTO> subActivitysList;
+}
