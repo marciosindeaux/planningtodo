@@ -1,6 +1,7 @@
 package br.sindeaux.planningtod.planningtodo.entity;
 
 import br.sindeaux.planningtod.planningtodo.entity.base.EntityBase;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -8,6 +9,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "SUB_ATIVIDADES")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class SubActivitys extends EntityBase {
 
     @Id
