@@ -2,7 +2,6 @@ package br.sindeaux.planningtod.planningtodo.controller;
 
 import br.sindeaux.planningtod.planningtodo.dto.base.SubActivityDTO;
 import br.sindeaux.planningtod.planningtodo.entity.SubActivitys;
-import br.sindeaux.planningtod.planningtodo.repository.SubActivityRepository;
 import br.sindeaux.planningtod.planningtodo.service.SubActivityService;
 import br.sindeaux.planningtod.planningtodo.utils.ConverterUtils;
 import org.springframework.beans.factory.annotation.Autowired;

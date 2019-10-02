@@ -1,11 +1,13 @@
 package br.sindeaux.planningtod.planningtodo.entity;
 
 import br.sindeaux.planningtod.planningtodo.entity.base.EntityBase;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "SUB_ATIVIDADES")

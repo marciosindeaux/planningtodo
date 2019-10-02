@@ -1,13 +1,15 @@
 package br.sindeaux.planningtod.planningtodo.controller;
 
 import br.sindeaux.planningtod.planningtodo.dto.base.ActivityDTO;
-import br.sindeaux.planningtod.planningtodo.dto.root.ResponseDTO;
 import br.sindeaux.planningtod.planningtodo.entity.Activity;
 import br.sindeaux.planningtod.planningtodo.service.ActivityService;
 import br.sindeaux.planningtod.planningtodo.utils.ConverterUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("activity")
@@ -43,11 +45,20 @@ public class ActivityController implements AbstractController{
     }
 
     @GetMapping("{id}")
-    public ResponseEntity listarActivitys(@PathVariable(name = "id") Long idActivity){
+    public ResponseEntity listarActivitys(@PathVariable("id") Long idActivity){
         try{
             return tryResponse(activityService.listarPorId(idActivity));
         }catch (RuntimeException e){
             return catchResponse(e);
+        }
+    }
+
+    @GetMapping("{id}/sub-activitys")
+    public ResponseEntity listarSubAtividadesDeAtividade(@PathVariable("id") Long idActivity){
+        try {
+            return tryResponse(activityService.listarSubAtividadesDeAtividade(idActivity));
+        }catch (NoSuchElementException e){
+            return catchResponse(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
 }

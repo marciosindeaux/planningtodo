@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional(rollbackOn = Exception.class)
@@ -16,5 +17,9 @@ public class SubActivityService {
 
     public void salvarNovaSubAtividade(SubActivitys subActivitys){
         subActivityRepository.save(subActivitys);
+    }
+
+    public List<SubActivitys> listarSubAtividadesDeAtividade(Long idActivity){
+        return subActivityRepository.findAllByActivity_Id(idActivity);
     }
 }

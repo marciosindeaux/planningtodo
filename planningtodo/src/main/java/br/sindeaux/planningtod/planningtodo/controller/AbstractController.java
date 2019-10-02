@@ -30,7 +30,8 @@ public interface AbstractController {
         return catchResponse(e.getMessage());
     }
 
-
-
+    default ResponseEntity catchResponse(String msg, HttpStatus httpStatus){
+        return response(null, msg,httpStatus);
+    }
 
 }
