@@ -1,7 +1,6 @@
 package br.sindeaux.planningtod.planningtodo.entity.base;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
