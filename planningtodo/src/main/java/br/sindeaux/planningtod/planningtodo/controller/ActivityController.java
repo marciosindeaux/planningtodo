@@ -25,7 +25,7 @@ public class ActivityController implements AbstractController{
             activityService.salvarActivity(activity);
             return tryResponse();
         }catch (RuntimeException e){
-            return catchResponse("Não foi possivel realizar ação");
+            return catchResponse();
         }
     }
 

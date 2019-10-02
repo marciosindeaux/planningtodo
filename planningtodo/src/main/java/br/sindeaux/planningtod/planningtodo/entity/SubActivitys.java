@@ -26,11 +26,10 @@ public class SubActivitys extends EntityBase {
     @Column(name = "ST_TERMINADO")
     private Boolean finish;
 
-
     @Column(name = "DS_ATIVIDADE")
     private String annotations;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "COD_ATIVIDADE")
+    @JoinColumn(name = "COD_ATIVIDADE",nullable = false)
     private Activity activity;
 }
