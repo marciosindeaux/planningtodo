@@ -28,6 +28,10 @@ public class ActivityService {
         return activityRepository.findAll();
     }
 
+    public List<Activity> listarPendentes(Boolean boo){
+        return activityRepository.findAllByFinish(!boo);
+    }
+
     public Activity listarPorId(Long id){
         return activityRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Elemento não encontrado"));
     }
@@ -38,5 +42,9 @@ public class ActivityService {
             throw new NoSuchElementException("Nenhum elemento encontrado");
         }
         return  subAtividades;
+    }
+
+    public void deletarAtividade(Long id){
+        activityRepository.deleteById(id);
     }
 }

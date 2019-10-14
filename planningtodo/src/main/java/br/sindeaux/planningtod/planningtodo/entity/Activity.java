@@ -43,6 +43,6 @@ public class Activity extends EntityBase {
     @Column(name = "DS_ATIVIDADE")
     private String annotations;
 
-    @OneToMany(mappedBy = "activity",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "activity",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<SubActivitys> subActivitysList;
 }

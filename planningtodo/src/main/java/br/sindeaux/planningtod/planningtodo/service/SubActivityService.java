@@ -22,4 +22,8 @@ public class SubActivityService {
     public List<SubActivitys> listarSubAtividadesDeAtividade(Long idActivity){
         return subActivityRepository.findAllByActivity_Id(idActivity);
     }
+
+    public void removerSubAtividade(Long id){
+        subActivityRepository.deleteById(id);
+    }
 }

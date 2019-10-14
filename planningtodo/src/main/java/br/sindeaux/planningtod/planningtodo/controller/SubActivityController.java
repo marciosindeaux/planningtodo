@@ -6,10 +6,7 @@ import br.sindeaux.planningtod.planningtodo.service.SubActivityService;
 import br.sindeaux.planningtod.planningtodo.utils.ConverterUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("sub-activity")
@@ -23,6 +20,27 @@ public class SubActivityController implements  AbstractController{
         try{
             SubActivitys subActivity = ConverterUtils.convertTo(subActivityDTO, SubActivitys.class);
             subActivityService.salvarNovaSubAtividade(subActivity);
+            return tryResponse();
+        }catch (Exception e){
+            return catchResponse();
+        }
+    }
+
+    @PutMapping
+    public ResponseEntity atualizarSubActivity(@RequestBody SubActivityDTO subActivityDTO){
+        try{
+            SubActivitys subActivity = ConverterUtils.convertTo(subActivityDTO, SubActivitys.class);
+            subActivityService.salvarNovaSubAtividade(subActivity);
+            return tryResponse();
+        }catch (Exception e){
+            return catchResponse();
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity deletarSubActivity(@PathVariable("id") Long idSubActivity){
+        try{
+            subActivityService.removerSubAtividade(idSubActivity);
             return tryResponse();
         }catch (Exception e){
             return catchResponse();
