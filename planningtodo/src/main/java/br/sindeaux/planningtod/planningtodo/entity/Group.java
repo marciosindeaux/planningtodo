@@ -25,6 +25,6 @@ public class Group extends EntityBase {
     @Column(name = "DS_GRUPO")
     private String tittle;
 
-    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "group", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Activity> activityList;
 }
